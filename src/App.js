@@ -3,12 +3,10 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
-import { BrowserRouter, Route } from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
-const App = (props) => {
-
+const App = () => {
   return (
     <div className='App'>
       <div className='appwrapper'>
@@ -17,9 +15,10 @@ const App = (props) => {
         <div className='appwrappercontent'>
           <div className='Polaroid'></div>
           <Route exact path='/dialogs'
-            render={() => <DialogsContainer store={props.store} /> } />
+            render={ () => <DialogsContainer /> }/>
+
           <Route path='/profile'
-            render={ () => <Profile store={props.store} /> } />
+            render={ () => <Profile /> }/>
         </div>
       </div>
     </div>

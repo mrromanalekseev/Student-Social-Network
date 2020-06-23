@@ -1,0 +1,30 @@
+
+.header {
+grid-area: h;
+text-align: left;
+background-color: #282c34;
+}
+
+.Applogo {
+height: 14vmin;
+pointer-events: none;
+}
+  
+@media (prefers-reduced-motion: no-preference) {
+.Applogo {
+animation: Applogospin infinite 12s linear;
+  }
+}
+  
+.Applink {
+color: #61dafb;
+}
+  
+@keyframes Applogospin {
+from {
+transform: rotate(0deg);
+  }
+to {
+transform: rotate(360deg);
+  }
+}

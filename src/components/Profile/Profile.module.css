@@ -1,0 +1,12 @@
+.Polaroid {
+    min-height: 150px;
+    background: url('https://mathmunch.files.wordpress.com/2013/07/summer.jpg') right no-repeat;
+    background-size: cover;
+}
+  
+.content {
+    grid-area: c;
+    text-align: left;
+    background-color: cornflowerblue;
+}
+

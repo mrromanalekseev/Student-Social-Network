@@ -9,6 +9,9 @@ let initialState ={
         { id: 2, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_bHAJHnCI8FWblTKUFKvFIrJUrqaanw7Pgg&usqp=CAU', followed: true, fullName: 'Paul', status: 'I am Boss too', location: {city: 'London', country: 'GB'} },
         { id: 3, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNAYfEZa-JkgzFjTyALSKvr6gzkQuny9BDZQ&usqp=CAU', followed: false, fullName: 'Donald', status: 'I am Boss too', location: {city: 'Dallas', country: 'US'} },*/
     ],
+    pageSize: 5,
+    totalUsersCount: 19,
+    currentPage: 2
 };
 
 const usersReducer = (state = initialState, action) => {

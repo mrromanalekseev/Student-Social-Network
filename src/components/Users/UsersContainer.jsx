@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {followAC, setUsersAC, unfollowAC, setCurrentPageAC,setUsersTotalCountAC,toggleIsFetchingAC} from "../../redux/users-reducer"
+import {follow, setUsers, unfollow, setCurrentPage,setTotalUsersCount,toggleIsFetching} from "../../redux/users-reducer"
 import * as axios from 'axios';
 import Users from './Users';
 import Spinner from '../common/spinner/Spinner'
@@ -53,7 +53,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+/* let mapDispatchToProps = (dispatch) => {
     return {
         follow: (userId) => {
             dispatch(followAC(userId));
@@ -75,5 +75,12 @@ let mapDispatchToProps = (dispatch) => {
         },
     }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps) (UsersContainer);
+ */
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching
+}) (UsersContainer);

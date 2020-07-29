@@ -28,3 +28,13 @@ to {
 transform: rotate(360deg);
   }
 }
+
+.loginBlock {
+  float: right;
+}
+
+.loginBlock a {
+  color: white;
+}
+
+

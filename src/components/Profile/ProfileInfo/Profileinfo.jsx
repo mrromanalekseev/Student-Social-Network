@@ -1,6 +1,9 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
 import Spinner from "../../common/spinner/Spinner";
+import vikvik from '../../../assets/images/vikvik.png';
+import ProfileStatus from './ProfileStatus'
+
 
 
 const ProfileInfo = (props) => {
@@ -9,9 +12,10 @@ if (!props.profile) {
 }
 
     return <div>
+        <div className={s.item}><img src={vikvik} /> </div>
         <div className={s.descriptionBlock}>
             <img src={props.profile.photos.large} />
-            ava + description
+            <ProfileStatus status={'Hello my friends'}/>
         </div>
     </div>    
 }

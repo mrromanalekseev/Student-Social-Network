@@ -1,5 +1,6 @@
-Here we go <img src=Thor.jpg />
+
 Here we go <img src=Thor2.jpg />
+Here we go <img src=Thor.jpg />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

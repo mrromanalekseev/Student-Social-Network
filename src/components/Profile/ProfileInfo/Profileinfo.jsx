@@ -2,6 +2,7 @@ import React from 'react';
 import s from './ProfileInfo.module.css';
 import Spinner from "../../common/spinner/Spinner";
 import vikvik from '../../../assets/images/vikvik.png';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 import ProfileStatus from './ProfileStatus'
 
 
@@ -15,7 +16,7 @@ if (!props.profile) {
         <div className={s.item}><img src={vikvik} /> </div>
         <div className={s.descriptionBlock}>
             <img src={props.profile.photos.large} />
-            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
         </div>
     </div>    
 }

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useEffect} from 'react';
 import s from './ProfileInfo.module.css';
 
 /* let arr = [0, () => {}]
@@ -8,6 +9,12 @@ const ProfileStatusWithHooks = (props) => {
 
     let [editMode, setEditMode] = useState(false)
     let [status, setStatus] = useState(props.status)
+
+    useEffect ( () => {
+        debugger;
+        setStatus(props.status)
+    }, [props.status] )
+    
   
     /* let stateWithSetState = useState(true);
     let editMode = stateWithSetState [0];

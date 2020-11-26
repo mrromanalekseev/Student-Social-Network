@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 import {Field, reduxForm} from 'redux-form';
@@ -21,7 +21,8 @@ const AddNewPostForm = (props) => {
     )
 }
 
-const MyPosts = (props) => {
+const MyPosts = React.memo (props => {
+        console.log("Render Yo")
 
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
 
@@ -29,16 +30,36 @@ const MyPosts = (props) => {
 
     let onAddPost = (values) => {
         props.addPost(values.newPostText); 
-    } 
+    }  
 
-    return <div className={s.postsBlock}>
+    /* class MyPosts extends PureComponent {
+
+         shouldComponentUpdate(nextProps, nextState) {
+            return nextProps != this.props || nextState != this.state;
+        } */
+
+       /*  render () {
+            console.log("Render Yo")
+
+        let postsElements = this.props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+    
+        let newPostElement = React.createRef();
+    
+        let onAddPost = (values) => {
+            this.props.addPost(values.newPostText); 
+        } 
+ */
+    return (
+    <div className={s.postsBlock}>
         <h3>My posts</h3>
         <AddNewPostReduxForm onSubmit={onAddPost}/>
         <div className={s.posts}>
             {postsElements}
         </div>
     </div>
-}
+    )
+});
+
 
 
 const AddNewPostReduxForm = reduxForm ({form: 'ProfileAddNewPostForm'})(AddNewPostForm);

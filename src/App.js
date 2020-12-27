@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import {Route} from 'react-router-dom';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
+
+
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from './components/Header/HeaderContainer';
@@ -12,6 +13,10 @@ import {compose} from "redux";
 import withRouter from "react-router-dom/es/withRouter";
 import {initializeApp} from "./redux/app-reducer";
 import Spinner from './components/common/spinner/Spinner';
+
+import { Suspense } from 'react';
+//import DialogsContainer from './components/Dialogs/DialogsContainer';
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 
 class App extends React.Component {
 
@@ -31,8 +36,13 @@ class App extends React.Component {
             <Navbar/>
             <div className='appwrappercontent'>
               <div className='Polaroid'></div>
-              <Route exact path='/dialogs'
-                     render={() => <DialogsContainer/>}/>
+
+              <Route path='/dialogs'
+                     render={() => {
+                     return  <Suspense fallback={<div>Loading...</div>}>
+                       <DialogsContainer/>
+                   </Suspense>
+                     }}/>
 
               <Route path='/profile/:userId?'
                      render={() => <ProfileContainer/>}/>

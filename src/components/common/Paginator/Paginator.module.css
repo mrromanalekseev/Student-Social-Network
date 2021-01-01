@@ -4,12 +4,12 @@
 }
 
 .pageNumber {
-    padding: 2px;
-    border: 1px solid pink;
+    padding: 1px;
+    border: 1.5px solid blue;
 }
 
 
 .pageNumber.selectedPage {
     font-weight: bold;
-    border-color: black;
+    border: 5px;
     }

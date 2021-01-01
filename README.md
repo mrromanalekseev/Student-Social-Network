@@ -1,4 +1,4 @@
-Here we go <img src=Sample.jpg />
+
 Here we go <img src=Thor2.jpg />
 Here we go <img src=Thor.jpg />
 

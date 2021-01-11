@@ -22,7 +22,16 @@ const onMainPhotoSelected = (e) => {
             <img src={profile.photos.large || userPhoto} className={s.mainPhoto} />
             {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
 
-<div>
+        <ProfileData profile={profile}/>
+
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+        </div>
+    </div>    
+}
+
+const ProfileData = ({profile}) => {
+
+return <div>
     <div>
     <b>Full name</b>: {profile.fullName}
     </div>
@@ -34,15 +43,21 @@ const onMainPhotoSelected = (e) => {
         <b>My professional skills</b>: {profile.lookinForAJobDescription}
     </div>
     }
+
     <div>
     <b>About me</b>: {profile.aboutMe}
     </div>
+    <div>
+    <b>Contacts</b>: {Object.keys(profile.contacts).map(key=>{
+        return<Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+    })}
+    </div>
 </div>
+}  
 
 
-            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-        </div>
-    </div>    
+const Contact = ({contactTitle, contactValue}) => {
+return <div className={s.contact}><b>{contactTitle}</b>:{contactValue}</div>
 }
 
 export default ProfileInfo;

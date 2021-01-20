@@ -16,7 +16,7 @@ let [portionNumber, setPortionNumber] = useState(1);
 let leftPortionPageNumber = (portionNumber -1) * portionSize +1;
 let rightPortionPageNumber = portionNumber * portionSize;
 
-    return <div className={styles.paginator}>
+    return <div className={cn(styles.paginator, styles.selectedPage)}>
             { portionNumber > 1 &&
             <button onClick={() => {setPortionNumber(portionNumber -1) }}>PREV</button> }
             {pages

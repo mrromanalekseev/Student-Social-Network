@@ -40,7 +40,7 @@ return <div>
     <b>Full name</b>: {profile.fullName}
     </div>
     <div>
-    <b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}
+    <b>Looking for a job</b>: {profile.lookingForAJob ? "no" : "yes"}
     </div>
     { profile.lookingForAJob &&
     <div>

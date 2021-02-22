@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './ProfileInfo.module.css';
 import Spinner from "../../common/spinner/Spinner";
 import vikvik from '../../../assets/images/vikvik.png';
@@ -6,10 +6,12 @@ import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 import userPhoto from '../../../assets/images/user.png';
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
-if (!profile) {
-    return<div className={s.item}><img src={vikvik}/> </div>
-    /* <Spinner /> */
-}
+
+    if (!profile) {
+         //return <Spinner /> 
+         return <div className={s.item}><img src={vikvik}/> </div>   
+    }
+  
 
 const onMainPhotoSelected = (e) => {
     if (e.target.files.length) {
@@ -18,6 +20,7 @@ const onMainPhotoSelected = (e) => {
 }
 
     return <div>
+        
         <div className={s.descriptionBlock}>
             <img src={profile.photos.large || userPhoto} className={s.mainPhoto} />
             {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
@@ -28,6 +31,7 @@ const onMainPhotoSelected = (e) => {
         </div>
     </div>    
 }
+
 
 const ProfileData = ({profile}) => {
 

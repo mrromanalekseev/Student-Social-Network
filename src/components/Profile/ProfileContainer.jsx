@@ -11,10 +11,11 @@ class ProfileContainer extends React.Component {
 refreshProfile(){
     let userId = this.props.match.params.userId;
     if (!userId) {
-        userId = 9591 //this.props.authorizedUserId;
-            /* if (!userId) {
-            this.props.history.push("/login");
-        } */
+        userId = this.props.authorizedUserId;
+        if (!userId) {
+            userId = 9591
+            //this.props.history.push("/login");
+        }
     }
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);

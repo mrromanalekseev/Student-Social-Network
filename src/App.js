@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import {Route} from 'react-router-dom';
-
+import { Redirect } from "react-router-dom"
 
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -13,6 +13,7 @@ import {compose} from "redux";
 import withRouter from "react-router-dom/es/withRouter";
 import {initializeApp} from "./redux/app-reducer";
 import Spinner from './components/common/spinner/Spinner';
+import { Switch } from "react-router";
 
 import { Suspense } from 'react';
 //import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -36,6 +37,9 @@ class App extends React.Component {
             <Navbar/>
             <div className='appwrappercontent'>
               <div className='Polaroid'></div>
+<Switch>
+              <Route exact path='/'
+                     render={() => <Redirect to={"/profile"}/>}/>
 
               <Route path='/dialogs'
                      render={() => {
@@ -53,6 +57,9 @@ class App extends React.Component {
               <Route path='/login'
                      render={() => <LoginPage/>}/>
 
+              <Route path='*'
+                     render={() => <div>404 NOT FOUND</div>}/>
+</Switch>
             </div>
           </div>
         </div>
